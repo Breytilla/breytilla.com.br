@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "skills": {
+    "seo": {
+      "name": "seo",
+      "source": "local",
+      "contentHash": "fc9897a3923b5e23e00545ac67f4c8c2b6903113bd5f046cda259c98a0f3cd40",
+      "installedAt": "2026-08-18T22:03:13.474Z",
+      "updatedAt": "2026-08-18T22:03:13.519Z",
+      "agents": [
+        "cursor",
+        "claude-code",
+        "windsurf"
+      ],
+      "method": "copy",
+      "global": false
+    },
+    "tlc-generative-engine-optimization": {
+      "name": "tlc-generative-engine-optimization",
+      "source": "local",
+      "contentHash": "0ffb82a6d58cbb4f7f265a29601971bd302322ef89c4392f25278376200596df",
+      "installedAt": "2026-08-18T22:03:36.434Z",
+      "updatedAt": "2026-08-18T22:03:36.482Z",
+      "agents": [
+        "cursor",
+        "claude-code"
+      ],
+      "method": "copy",
+      "global": false
+    }
+  }
+}

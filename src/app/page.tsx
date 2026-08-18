@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ArrowDown, ArrowUpRight, Diamond } from "lucide-react";
 
 const whatsappMessage =
   "Olá, Breytilla. Encontrei seu site e gostaria de saber mais sobre a psicoterapia online.";
@@ -138,7 +139,7 @@ export default function Home() {
             aria-label="Conversar com Breytilla pelo WhatsApp"
           >
             Conversar
-            <span aria-hidden="true">↗</span>
+            <ArrowUpRight aria-hidden="true" />
           </a>
         </div>
       </header>
@@ -169,11 +170,11 @@ export default function Home() {
                   rel="noopener noreferrer"
                 >
                   Quero conversar sobre terapia
-                  <span aria-hidden="true">↗</span>
+                  <ArrowUpRight aria-hidden="true" />
                 </a>
                 <a className="text-link" href="#psicoterapia">
                   Conheça meu trabalho
-                  <span aria-hidden="true">↓</span>
+                  <ArrowDown aria-hidden="true" />
                 </a>
               </div>
 
@@ -268,7 +269,7 @@ export default function Home() {
               <ul>
                 {focusAreas.map((area) => (
                   <li key={area}>
-                    <span aria-hidden="true">◇</span>
+                    <Diamond aria-hidden="true" />
                     {area}
                   </li>
                 ))}
@@ -313,7 +314,7 @@ export default function Home() {
                 rel="noopener noreferrer"
               >
                 Verificar disponibilidade
-                <span aria-hidden="true">↗</span>
+                <ArrowUpRight aria-hidden="true" />
               </a>
               <p>
                 Atendimento individual · online · mulheres adultas (18+) no
@@ -400,7 +401,7 @@ export default function Home() {
                 rel="noopener noreferrer"
               >
                 Enviar uma pergunta
-                <span aria-hidden="true">↗</span>
+                <ArrowUpRight aria-hidden="true" />
               </a>
             </div>
 
@@ -437,7 +438,7 @@ export default function Home() {
               rel="noopener noreferrer"
             >
               Conversar pelo WhatsApp
-              <span aria-hidden="true">↗</span>
+              <ArrowUpRight aria-hidden="true" />
             </a>
           </div>
         </section>
@@ -463,17 +464,17 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              WhatsApp · (16) 99212-6214 <span aria-hidden="true">↗</span>
+              WhatsApp · (16) 99212-6214 <ArrowUpRight aria-hidden="true" />
             </a>
             <a href="mailto:psibreytillak@gmail.com">
-              E-mail · psibreytillak@gmail.com <span aria-hidden="true">↗</span>
+              E-mail · psibreytillak@gmail.com <ArrowUpRight aria-hidden="true" />
             </a>
             <a
               href="https://instagram.com/breytillak"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Instagram · @breytillak <span aria-hidden="true">↗</span>
+              Instagram · @breytillak <ArrowUpRight aria-hidden="true" />
             </a>
           </div>
         </div>

@@ -222,20 +222,22 @@ h2 em {
     transform 220ms ease;
 }
 
-.button span,
-.text-link span,
-.footer-links span {
-  font-size: 1rem;
+.button svg,
+.text-link svg,
+.footer-links svg {
+  flex: 0 0 auto;
+  height: 1rem;
   transition: transform 220ms ease;
+  width: 1rem;
 }
 
 .button:hover {
   transform: translateY(-2px);
 }
 
-.button:hover span,
-.text-link:hover span,
-.footer-links a:hover span {
+.button:hover svg,
+.text-link:hover svg,
+.footer-links a:hover svg {
   transform: translate(2px, -2px);
 }
 
@@ -668,10 +670,12 @@ h2 em {
   padding-block: 15px;
 }
 
-.focus-card li span {
+.focus-card li svg {
   color: var(--cocoa);
-  font-family: var(--font-body);
-  font-size: 0.8rem;
+  flex: 0 0 auto;
+  height: 0.8rem;
+  stroke-width: 1.5;
+  width: 0.8rem;
 }
 
 .focus-note {
