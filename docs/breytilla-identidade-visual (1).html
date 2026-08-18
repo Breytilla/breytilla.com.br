@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Breytilla — Identidade Visual</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --terra: #C4956A;
+    --creme: #F5EFE6;
+    --marfim: #FAF7F2;
+    --cacau: #3D2B1F;
+    --rosa-pó: #D4A9A1;
+    --sage: #8E9E8A;
+    --dourado: #B89060;
+    --escuro: #2A1F1A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--marfim);
+    font-family: 'Jost', sans-serif;
+    color: var(--escuro);
+    overflow-x: hidden;
+  }
+
+  /* ── CAPA ── */
+  .cover {
+    min-height: 100vh;
+    background: var(--cacau);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(196,149,106,0.18) 0%, transparent 70%);
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -150px; left: -100px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212,169,161,0.15) 0%, transparent 70%);
+  }
+
+  .cover-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 11px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--terra);
+    margin-bottom: 40px;
+    opacity: 0.9;
+  }
+
+  .logo-main {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(64px, 12vw, 120px);
+    font-weight: 300;
+    color: var(--creme);
+    line-height: 0.9;
+    letter-spacing: -2px;
+    margin-bottom: 8px;
+  }
+
+  .logo-main em {
+    font-style: italic;
+    color: var(--terra);
+  }
+
+  .logo-sub {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: clamp(11px, 2vw, 14px);
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    color: var(--rosa-pó);
+    margin-top: 20px;
+    opacity: 0.8;
+  }
+
+  .divider-ornament {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 32px 0;
+  }
+  .divider-ornament span {
+    height: 1px;
+    width: 80px;
+    background: linear-gradient(to right, transparent, var(--terra));
+    opacity: 0.5;
+  }
+  .divider-ornament span:last-child {
+    background: linear-gradient(to left, transparent, var(--terra));
+  }
+  .divider-ornament i {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--terra);
+    opacity: 0.7;
+    font-style: normal;
+  }
+
+  .cover-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(18px, 3vw, 24px);
+    color: var(--creme);
+    opacity: 0.75;
+    max-width: 480px;
+    line-height: 1.5;
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    padding: 80px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-tag {
+    font-weight: 300;
+    font-size: 10px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--terra);
+    margin-bottom: 48px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-tag::after {
+    content: '';
+    height: 1px;
+    flex: 1;
+    background: var(--terra);
+    opacity: 0.3;
+  }
+
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(36px, 5vw, 56px);
+    line-height: 1.1;
+    color: var(--escuro);
+    margin-bottom: 16px;
+  }
+  h2 em { font-style: italic; color: var(--terra); }
+
+  /* ── PALETA ── */
+  .palette-section {
+    background: var(--creme);
+    padding: 80px 60px;
+  }
+  .palette-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .swatch {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .swatch-color {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+  }
+  .swatch-color::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+  }
+  .swatch-name {
+    font-weight: 400;
+    font-size: 12px;
+    color: var(--escuro);
+    letter-spacing: 1px;
+  }
+  .swatch-hex {
+    font-weight: 200;
+    font-size: 11px;
+    color: var(--terra);
+    letter-spacing: 1px;
+    font-family: monospace;
+  }
+  .swatch-role {
+    font-size: 10px;
+    color: #999;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+  }
+
+  /* ── TIPOGRAFIA ── */
+  .typo-section {
+    background: var(--marfim);
+    padding: 80px 60px;
+  }
+  .typo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-top: 48px;
+  }
+  .typo-sample {
+    border-left: 2px solid var(--terra);
+    padding-left: 24px;
+  }
+  .font-label {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--terra);
+    margin-bottom: 20px;
+    font-weight: 300;
+  }
+  .font-display-1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    font-weight: 300;
+    line-height: 0.95;
+    color: var(--escuro);
+  }
+  .font-display-2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--terra);
+    margin-top: 12px;
+  }
+  .font-body-1 {
+    font-family: 'Jost', sans-serif;
+    font-size: 32px;
+    font-weight: 200;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--escuro);
+  }
+  .font-body-2 {
+    font-family: 'Jost', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: #666;
+    margin-top: 12px;
+  }
+
+  /* ── LOGO VARIATIONS ── */
+  .logo-section {
+    background: var(--escuro);
+    padding: 80px 60px;
+  }
+  .logo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 48px;
+  }
+  .logo-variant {
+    padding: 48px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 240px;
+    gap: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  .lv-dark { background: var(--cacau); }
+  .lv-terra { background: var(--terra); }
+  .lv-creme { background: var(--creme); }
+
+  .lv-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    letter-spacing: -1px;
+    line-height: 0.92;
+  }
+  .lv-tag {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font-size: 10px;
+  }
+  .lv-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+  }
+
+  /* on dark */
+  .lv-dark .lv-name { font-size: 52px; color: var(--creme); }
+  .lv-dark .lv-name em { color: var(--terra); font-style: italic; }
+  .lv-dark .lv-tag { color: var(--rosa-pó); opacity: 0.7; }
+  .lv-dark .lv-dot { background: var(--terra); }
+
+  /* on terra */
+  .lv-terra .lv-name { font-size: 52px; color: var(--marfim); }
+  .lv-terra .lv-name em { color: var(--cacau); font-style: italic; }
+  .lv-terra .lv-tag { color: var(--marfim); opacity: 0.8; }
+  .lv-terra .lv-dot { background: var(--marfim); opacity: 0.7; }
+
+  /* on creme */
+  .lv-creme .lv-name { font-size: 52px; color: var(--cacau); }
+  .lv-creme .lv-name em { color: var(--terra); font-style: italic; }
+  .lv-creme .lv-tag { color: var(--terra); opacity: 0.8; }
+  .lv-creme .lv-dot { background: var(--terra); }
+
+  /* ── MONOGRAMA ── */
+  .mono-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    margin-top: 48px;
+  }
+  .monogram {
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+  }
+  .monogram::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border-radius: 50%;
+    border: 1px solid currentColor;
+    opacity: 0.25;
+  }
+  .mono-letter {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    font-weight: 300;
+    line-height: 1;
+  }
+  .mono-sub {
+    font-family: 'Jost', sans-serif;
+    font-size: 8px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin-top: 4px;
+  }
+
+  /* ── APLICAÇÕES ── */
+  .aplicacoes-section {
+    background: var(--creme);
+    padding: 80px 60px;
+  }
+  .app-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 48px;
+  }
+
+  /* Cartão de visita */
+  .business-card {
+    aspect-ratio: 1.75;
+    background: var(--cacau);
+    border-radius: 8px;
+    padding: 36px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 24px 60px rgba(61,43,31,0.25);
+  }
+  .bc-ornament {
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    border: 1px solid rgba(196,149,106,0.2);
+  }
+  .bc-ornament2 {
+    position: absolute;
+    top: -30px; right: -30px;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    border: 1px solid rgba(196,149,106,0.15);
+  }
+  .bc-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--creme);
+    letter-spacing: -0.5px;
+  }
+  .bc-name em { color: var(--terra); font-style: italic; }
+  .bc-title {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 9px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--rosa-pó);
+    opacity: 0.8;
+    margin-top: 4px;
+  }
+  .bc-info {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 10px;
+    color: var(--creme);
+    opacity: 0.6;
+    line-height: 1.8;
+  }
+
+  /* Post instagram */
+  .insta-post {
+    aspect-ratio: 1;
+    background: var(--terra);
+    border-radius: 8px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 24px 60px rgba(196,149,106,0.3);
+  }
+  .insta-post::before {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: 50%;
+    transform: translateX(-50%);
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+  }
+  .ip-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 26px;
+    font-weight: 300;
+    color: var(--marfim);
+    line-height: 1.35;
+    margin-bottom: 24px;
+    max-width: 320px;
+  }
+  .ip-name {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--marfim);
+    opacity: 0.7;
+  }
+  .ip-line {
+    width: 40px; height: 1px;
+    background: rgba(255,255,255,0.4);
+    margin: 0 auto 12px;
+  }
+
+  /* Capa livro */
+  .book-cover {
+    aspect-ratio: 0.67;
+    background: linear-gradient(160deg, var(--escuro) 0%, var(--cacau) 100%);
+    border-radius: 4px 12px 12px 4px;
+    padding: 44px 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    box-shadow: -8px 8px 40px rgba(0,0,0,0.4), 4px 0 8px rgba(0,0,0,0.2);
+    grid-column: span 1;
+  }
+  .book-cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(to right, var(--terra), var(--rosa-pó));
+  }
+  .book-cover::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(196,149,106,0.08) 0%, transparent 70%);
+  }
+  .bk-top { position: relative; z-index: 1; }
+  .bk-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 8px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--terra);
+    margin-bottom: 24px;
+  }
+  .bk-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-weight: 300;
+    color: var(--creme);
+    line-height: 1.05;
+  }
+  .bk-title em {
+    font-style: italic;
+    color: var(--terra);
+    display: block;
+  }
+  .bk-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--rosa-pó);
+    opacity: 0.7;
+    margin-top: 12px;
+    line-height: 1.4;
+  }
+  .bk-bottom {
+    position: relative;
+    z-index: 1;
+  }
+  .bk-author {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    color: var(--creme);
+    opacity: 0.7;
+    letter-spacing: 2px;
+  }
+
+  /* ── ASSINATURA EMAIL ── */
+  .email-sig-wrap {
+    background: white;
+    border-radius: 8px;
+    padding: 32px 40px;
+    border-left: 3px solid var(--terra);
+    font-family: 'Jost', sans-serif;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  }
+  .es-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--cacau);
+  }
+  .es-name em { font-style: italic; color: var(--terra); }
+  .es-title {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--terra);
+    font-weight: 300;
+    margin-top: 4px;
+  }
+  .es-divider {
+    width: 32px; height: 1px;
+    background: var(--terra);
+    opacity: 0.4;
+    margin: 16px 0;
+  }
+  .es-info {
+    font-size: 12px;
+    font-weight: 300;
+    color: #888;
+    line-height: 1.9;
+  }
+  .es-info a {
+    color: var(--terra);
+    text-decoration: none;
+  }
+
+  /* ── DIRETRIZES ── */
+  .guide-section {
+    background: var(--marfim);
+    padding: 80px 60px;
+  }
+  .guide-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 48px;
+  }
+  .guide-card {
+    padding: 32px;
+    border: 1px solid rgba(196,149,106,0.2);
+    border-radius: 4px;
+  }
+  .gc-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: var(--terra);
+    opacity: 0.4;
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .gc-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--escuro);
+    margin-bottom: 12px;
+  }
+  .gc-text {
+    font-size: 13px;
+    font-weight: 300;
+    color: #888;
+    line-height: 1.7;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--escuro);
+    padding: 48px 60px;
+    text-align: center;
+  }
+  footer .f-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--creme);
+  }
+  footer .f-name em { font-style: italic; color: var(--terra); }
+  footer .f-tag {
+    font-size: 10px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--terra);
+    opacity: 0.7;
+    margin-top: 8px;
+    font-weight: 200;
+  }
+
+  @media (max-width: 768px) {
+    section, .palette-section, .typo-section, .logo-section,
+    .aplicacoes-section, .guide-section, footer { padding: 48px 24px; }
+    .logo-grid { grid-template-columns: 1fr; }
+    .typo-grid { grid-template-columns: 1fr; }
+    .app-grid { grid-template-columns: 1fr; }
+    .guide-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- CAPA -->
+<div class="cover">
+  <p class="cover-label">Identidade Visual · 2025</p>
+  <div class="logo-main">Brey<em>tilla</em></div>
+  <p class="logo-sub">Psicóloga · Escritora · Facilitadora</p>
+  <div class="divider-ornament">
+    <span></span><i></i><span></span>
+  </div>
+  <p class="cover-tagline">O caminho de volta a si mesma começa com uma presença que acolhe.</p>
+</div>
+
+<!-- CONCEITO -->
+<section>
+  <p class="section-tag">01 · Conceito</p>
+  <h2>A essência<br>da <em>marca</em></h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:40px;align-items:start">
+    <div>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;color:var(--terra);line-height:1.5;margin-bottom:20px;">
+        "Acolher, transformar e conduzir ao reencontro consigo mesma."
+      </p>
+      <p style="font-size:14px;font-weight:300;color:#888;line-height:1.9">
+        A identidade visual de Breytilla foi construída em torno de três pilares: 
+        <strong style="font-weight:400;color:var(--escuro)">acolhimento</strong>, 
+        <strong style="font-weight:400;color:var(--escuro)">profundidade</strong> e 
+        <strong style="font-weight:400;color:var(--escuro)">feminilidade madura</strong>. 
+        Cada elemento remete à terra, ao calor humano e à jornada interior — 
+        o universo de quem guia outras mulheres de volta a si mesmas.
+      </p>
+    </div>
+    <div>
+      <div style="background:var(--creme);padding:32px;border-radius:4px">
+        <p style="font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--terra);margin-bottom:20px;font-weight:300">Palavras-chave</p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px">
+          <span style="padding:8px 16px;border:1px solid rgba(196,149,106,0.4);border-radius:2px;font-size:12px;font-weight:300;color:var(--cacau)">Acolhimento</span>
+          <span style="padding:8px 16px;border:1px solid rgba(196,149,106,0.4);border-radius:2px;font-size:12px;font-weight:300;color:var(--cacau)">Cura</span>
+          <span style="padding:8px 16px;border:1px solid rgba(196,149,106,0.4);border-radius:2px;font-size:12px;font-weight:300;color:var(--cacau)">Autoconhecimento</span>
+          <span style="padding:8px 16px;border:1px solid rgba(196,149,106,0.4);border-radius:2px;font-size:12px;font-weight:300;color:var(--cacau)">Feminilidade</span>
+          <span style="padding:8px 16px;border:1px solid rgba(196,149,106,0.4);border-radius:2px;font-size:12px;font-weight:300;color:var(--cacau)">Profundidade</span>
+          <span style="padding:8px 16px;border:1px solid rgba(196,149,106,0.4);border-radius:2px;font-size:12px;font-weight:300;color:var(--cacau)">Retorno</span>
+          <span style="padding:8px 16px;border:1px solid rgba(196,149,106,0.4);border-radius:2px;font-size:12px;font-weight:300;color:var(--cacau)">Presença</span>
+          <span style="padding:8px 16px;border:1px solid rgba(196,149,106,0.4);border-radius:2px;font-size:12px;font-weight:300;color:var(--cacau)">Transformação</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PALETA -->
+<div class="palette-section">
+  <div style="max-width:1200px;margin:0 auto">
+    <p class="section-tag">02 · Paleta de Cores</p>
+    <h2>Cores que<br><em>acolhem</em></h2>
+    <div class="palette-grid">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#3D2B1F"></div>
+        <div class="swatch-name">Cacau Profundo</div>
+        <div class="swatch-hex">#3D2B1F</div>
+        <div class="swatch-role">Base escura · Textos principais · Autoridade</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#C4956A"></div>
+        <div class="swatch-name">Terra Dourada</div>
+        <div class="swatch-hex">#C4956A</div>
+        <div class="swatch-role">Cor primária · Destaque · Energia principal</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#D4A9A1"></div>
+        <div class="swatch-name">Rosa Antigo</div>
+        <div class="swatch-hex">#D4A9A1</div>
+        <div class="swatch-role">Suavidade · Feminilidade · Complementar</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#8E9E8A"></div>
+        <div class="swatch-name">Sálvia</div>
+        <div class="swatch-hex">#8E9E8A</div>
+        <div class="swatch-role">Equilíbrio · Calma · Acento natural</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#F5EFE6"></div>
+        <div class="swatch-name">Creme Quente</div>
+        <div class="swatch-hex">#F5EFE6</div>
+        <div class="swatch-role">Fundos · Acolhimento · Leveza</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#B89060"></div>
+        <div class="swatch-name">Âmbar</div>
+        <div class="swatch-hex">#B89060</div>
+        <div class="swatch-role">Variação dourada · Luxo sutil</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TIPOGRAFIA -->
+<div class="typo-section">
+  <div style="max-width:1200px;margin:0 auto">
+    <p class="section-tag">03 · Tipografia</p>
+    <h2>Fontes que<br><em>falam</em> à alma</h2>
+    <div class="typo-grid">
+      <div class="typo-sample">
+        <p class="font-label">Cormorant Garamond · Display / Títulos</p>
+        <div class="font-display-1">Volta<br>para<br>mim</div>
+        <div class="font-display-2">A jornada do autoconhecimento</div>
+      </div>
+      <div class="typo-sample">
+        <p class="font-label">Jost · Corpo / Interface</p>
+        <div class="font-body-1">Breytilla</div>
+        <div class="font-body-2">
+          Psicóloga e escritora comprometida com a escuta profunda e o cuidado genuíno. 
+          Facilitadora de oficinas terapêuticas que guiam mulheres no reencontro com sua própria essência.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LOGO VARIAÇÕES -->
+<div class="logo-section">
+  <div style="max-width:1200px;margin:0 auto">
+    <p class="section-tag" style="color:var(--terra)">04 · Logotipo</p>
+    <h2 style="color:var(--creme)">Variações da<br><em>assinatura</em></h2>
+
+    <div class="logo-grid">
+      <!-- Principal -->
+      <div class="logo-variant lv-dark">
+        <p class="lv-tag">Versão Principal</p>
+        <div class="lv-name">Brey<em>tilla</em></div>
+        <span class="lv-dot"></span>
+        <p class="lv-tag">Psicóloga · Escritora</p>
+      </div>
+      <!-- Terra -->
+      <div class="logo-variant lv-terra">
+        <p class="lv-tag">Versão Terra</p>
+        <div class="lv-name">Brey<em>tilla</em></div>
+        <span class="lv-dot"></span>
+        <p class="lv-tag">Psicóloga · Escritora</p>
+      </div>
+      <!-- Claro -->
+      <div class="logo-variant lv-creme">
+        <p class="lv-tag">Versão Clara</p>
+        <div class="lv-name">Brey<em>tilla</em></div>
+        <span class="lv-dot"></span>
+        <p class="lv-tag">Psicóloga · Escritora</p>
+      </div>
+    </div>
+
+    <!-- Monograma -->
+    <p style="font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--terra);margin-top:60px;margin-bottom:0">Monograma / Ícone</p>
+    <div class="mono-container">
+      <div class="monogram" style="background:var(--terra);color:var(--marfim)">
+        <div class="mono-letter">B</div>
+        <p class="mono-sub">Breytilla</p>
+      </div>
+      <div class="monogram" style="background:var(--creme);color:var(--cacau)">
+        <div class="mono-letter" style="color:var(--terra)">B</div>
+        <p class="mono-sub" style="color:var(--cacau);opacity:0.6">Breytilla</p>
+      </div>
+      <div class="monogram" style="background:var(--cacau);color:var(--creme)">
+        <div class="mono-letter" style="color:var(--terra)">B</div>
+        <p class="mono-sub" style="color:var(--rosa-pó);opacity:0.7">Breytilla</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- APLICAÇÕES -->
+<div class="aplicacoes-section">
+  <div style="max-width:1200px;margin:0 auto">
+    <p class="section-tag">05 · Aplicações</p>
+    <h2>A marca em<br><em>movimento</em></h2>
+
+    <div class="app-grid" style="margin-top:48px">
+
+      <!-- Cartão de visita -->
+      <div>
+        <p style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--terra);margin-bottom:16px;font-weight:300">Cartão de Visita</p>
+        <div class="business-card">
+          <div class="bc-ornament"></div>
+          <div class="bc-ornament2"></div>
+          <div>
+            <div class="bc-name">Brey<em>tilla</em></div>
+            <p class="bc-title">Psicóloga · CRP · Escritora · Facilitadora</p>
+          </div>
+          <div class="bc-info">
+            www.breytilla.com.br<br>
+            @breytillak<br>
+            contato@breytilla.com.br
+          </div>
+        </div>
+      </div>
+
+      <!-- Post Instagram -->
+      <div>
+        <p style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--terra);margin-bottom:16px;font-weight:300">Post Instagram</p>
+        <div class="insta-post">
+          <p class="ip-quote">"Voltar para si mesma não é um destino. É uma escolha que se renova a cada dia."</p>
+          <div class="ip-line"></div>
+          <p class="ip-name">@breytillak</p>
+        </div>
+      </div>
+
+      <!-- Capa do livro -->
+      <div>
+        <p style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--terra);margin-bottom:16px;font-weight:300">Capa do Livro</p>
+        <div class="book-cover">
+          <div class="bk-top">
+            <p class="bk-label">Breytilla · 2025</p>
+            <div class="bk-title">A volta<br>para <em>mim</em><br>mesma</div>
+            <p class="bk-subtitle">Uma jornada de autoconhecimento e cura interior</p>
+          </div>
+          <div class="bk-bottom">
+            <p class="bk-author">Breytilla K.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Assinatura de email -->
+      <div>
+        <p style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--terra);margin-bottom:16px;font-weight:300">Assinatura de E-mail</p>
+        <div class="email-sig-wrap">
+          <div class="es-name">Brey<em>tilla</em></div>
+          <p class="es-title">Psicóloga · Escritora · Facilitadora</p>
+          <div class="es-divider"></div>
+          <div class="es-info">
+            <a href="#">www.breytilla.com.br</a><br>
+            <a href="#">@breytillak</a> · Instagram<br>
+            <span style="color:#aaa">Oficina: O Caminho de Volta a Si Mesma</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- DIRETRIZES -->
+<div class="guide-section">
+  <div style="max-width:1200px;margin:0 auto">
+    <p class="section-tag">06 · Diretrizes</p>
+    <h2>Como usar<br>essa <em>identidade</em></h2>
+    <div class="guide-grid">
+      <div class="guide-card">
+        <div class="gc-num">01</div>
+        <div class="gc-title">Tom de Voz</div>
+        <p class="gc-text">Caloroso e profundo. Use frases que acolham sem infantilizar. Evite jargões técnicos. Prefira metáforas poéticas ligadas à natureza, à jornada e ao retorno.</p>
+      </div>
+      <div class="guide-card">
+        <div class="gc-num">02</div>
+        <div class="gc-title">Fotografias</div>
+        <p class="gc-text">Tons quentes e naturais. Luz suave e difusa. Elementos orgânicos (flores, terra, folhas). Evite fotos superprocessadas com filtros frios ou azulados.</p>
+      </div>
+      <div class="guide-card">
+        <div class="gc-num">03</div>
+        <div class="gc-title">Composição</div>
+        <p class="gc-text">Respire. Use espaço branco com generosidade. Títulos em Cormorant, textos em Jost. A elegância vem do que se omite, não do que se acrescenta.</p>
+      </div>
+      <div class="guide-card">
+        <div class="gc-num">04</div>
+        <div class="gc-title">Não use</div>
+        <p class="gc-text">Evite azuis frios, roxos vibrantes, fontes sem serifa genéricas (Arial, Calibri), ícones caricatos e fundos brancos puros. Eles contradizem o calor da marca.</p>
+      </div>
+      <div class="guide-card">
+        <div class="gc-num">05</div>
+        <div class="gc-title">Redes Sociais</div>
+        <p class="gc-text">Feed coeso com a paleta terra/creme. Stories com fundo escuro para profundidade. Destaque para citações em Cormorant Garamond sobre fundo Terra Dourada.</p>
+      </div>
+      <div class="guide-card">
+        <div class="gc-num">06</div>
+        <div class="gc-title">Diferenciais</div>
+        <p class="gc-text">O "B" em itálico do logo é seu símbolo único. Sempre mantenha a tensão entre o display em itálico e o restante em peso leve — ela representa dualidade e movimento.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-name">Brey<em>tilla</em></div>
+  <p class="f-tag">Psicóloga · Escritora · Facilitadora · breytilla.com.br</p>
+</footer>
+
+</body>
+</html>
