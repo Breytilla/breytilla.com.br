@@ -1,0 +1,101 @@
+import type { CSSProperties } from "react";
+
+export const emailTheme = {
+  colors: {
+    cocoa: "#3d2b1f",
+    cocoaDeep: "#2a1f1a",
+    earth: "#c4956a",
+    earthText: "#8f6240",
+    rose: "#d4a9a1",
+    sage: "#8e9e8a",
+    amber: "#b89060",
+    cream: "#f5efe6",
+    ivory: "#faf7f2",
+    white: "#fffdf9",
+    muted: "#715f54",
+    line: "#ded5cd",
+  },
+  fonts: {
+    display: 'Georgia, "Times New Roman", serif',
+    body: 'Arial, "Helvetica Neue", sans-serif',
+  },
+} as const;
+
+export const emailStyles = {
+  body: {
+    backgroundColor: emailTheme.colors.ivory,
+    color: emailTheme.colors.cocoaDeep,
+    fontFamily: emailTheme.fonts.body,
+    margin: 0,
+    padding: "32px 12px",
+    width: "100%",
+  },
+  container: {
+    margin: "0 auto",
+    maxWidth: "600px",
+    width: "100%",
+  },
+  content: {
+    backgroundColor: emailTheme.colors.white,
+    borderLeft: `1px solid ${emailTheme.colors.line}`,
+    borderRight: `1px solid ${emailTheme.colors.line}`,
+    padding: "42px 44px 46px",
+  },
+  eyebrow: {
+    color: emailTheme.colors.earthText,
+    fontFamily: emailTheme.fonts.body,
+    fontSize: "11px",
+    fontWeight: 700,
+    letterSpacing: "2px",
+    lineHeight: "18px",
+    margin: "0 0 18px",
+    textTransform: "uppercase",
+  },
+  heading: {
+    color: emailTheme.colors.cocoaDeep,
+    fontFamily: emailTheme.fonts.display,
+    fontSize: "34px",
+    fontWeight: 500,
+    letterSpacing: "-1px",
+    lineHeight: "40px",
+    margin: "0 0 24px",
+  },
+  subheading: {
+    color: emailTheme.colors.cocoa,
+    fontFamily: emailTheme.fonts.display,
+    fontSize: "23px",
+    fontWeight: 600,
+    letterSpacing: "-0.3px",
+    lineHeight: "30px",
+    margin: "30px 0 12px",
+  },
+  paragraph: {
+    color: emailTheme.colors.cocoa,
+    fontFamily: emailTheme.fonts.body,
+    fontSize: "16px",
+    lineHeight: "27px",
+    margin: "0 0 18px",
+  },
+  mutedParagraph: {
+    color: emailTheme.colors.muted,
+    fontFamily: emailTheme.fonts.body,
+    fontSize: "14px",
+    lineHeight: "23px",
+    margin: "0 0 16px",
+  },
+  divider: {
+    borderColor: emailTheme.colors.line,
+    borderTopWidth: "1px",
+    margin: "30px 0",
+  },
+  note: {
+    backgroundColor: emailTheme.colors.cream,
+    borderLeft: `3px solid ${emailTheme.colors.earth}`,
+    color: emailTheme.colors.cocoa,
+    fontFamily: emailTheme.fonts.body,
+    fontSize: "14px",
+    lineHeight: "23px",
+    margin: "26px 0 0",
+    padding: "17px 19px",
+  },
+} satisfies Record<string, CSSProperties>;

@@ -8,5 +8,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 1,
     },
+    {
+      url: "https://breytilla.com.br/privacidade",
+      lastModified: new Date("2026-08-20"),
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
   ];
 }

@@ -1,0 +1,22 @@
+{
+  "campaignKey": "example-newsletter-draft",
+  "name": "[EXEMPLO — NÃO ENVIAR] Newsletter editorial",
+  "templateVersion": "v1-example",
+  "subject": "[EXEMPLO] Uma pausa para o cotidiano",
+  "preheader": "Manifesto de demonstração usado somente para preview e revisão de draft.",
+  "title": "Este é um exemplo de newsletter",
+  "intro": "Use este arquivo como ponto de partida, troque o campaignKey e revise todo o conteúdo antes de criar uma campanha real.",
+  "sections": [
+    {
+      "heading": "Um convite à observação",
+      "paragraphs": [
+        "Ao longo do dia, experimente notar como você chega a cada atividade: com pressa, tensão, curiosidade ou disponibilidade.",
+        "Não é preciso corrigir o que aparecer. Perceber com gentileza já pode abrir espaço para novas escolhas."
+      ]
+    }
+  ],
+  "cta": {
+    "label": "Conhecer o site",
+    "url": "https://breytilla.com.br/"
+  }
+}

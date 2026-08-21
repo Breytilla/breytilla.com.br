@@ -9,11 +9,10 @@ const eslintConfig = defineConfig([
   globalIgnores([
     // Default ignores of eslint-config-next:
     ".next/**",
+    ".react-email/**",
     "out/**",
     "build/**",
     "next-env.d.ts",
-    // Independent example project with its own dependencies and configuration.
-    "react-email-starter/**",
   ]),
 ]);
 

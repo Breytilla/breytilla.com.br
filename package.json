@@ -6,15 +6,29 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "email:dev": "email dev --dir src/emails --port 3001",
+    "email:build": "email build --dir src/emails",
+    "email:export": "email export --dir src/emails --outDir out/emails",
+    "email:campaign": "tsx scripts/email-campaign.tsx",
+    "db:migrate": "node scripts/migrate.mjs",
+    "env:check": "node scripts/check-env.mjs"
   },
   "dependencies": {
+    "@next/env": "^16.3.1",
     "lucide-react": "^1.32.0",
     "next": "16.3.1",
+    "postgres": "^3.4.9",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "react-email": "^6.9.2",
+    "resend": "^6.21.0",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@react-email/ui": "^6.9.2",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -22,6 +36,8 @@
     "eslint": "^9",
     "eslint-config-next": "16.3.1",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "tsx": "^4.23.12",
+    "typescript": "^5",
+    "vitest": "^4.1.11"
   }
 }

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ArrowDown, ArrowUpRight, Diamond } from "lucide-react";
+import { ContactForm, NewsletterForm } from "@/components/email-forms";
 
 const whatsappMessage =
   "Olá, Breytilla. Encontrei seu site e gostaria de saber mais sobre a psicoterapia online.";
@@ -422,24 +423,28 @@ export default function Home() {
         <section className="closing" id="contato" aria-labelledby="closing-title">
           <div className="closing-orbit closing-orbit--one" aria-hidden="true" />
           <div className="closing-orbit closing-orbit--two" aria-hidden="true" />
-          <div className="container closing-inner">
-            <p className="eyebrow eyebrow--light">Seu primeiro passo</p>
-            <h2 id="closing-title">
-              Talvez voltar para si comece com a decisão de <em>não atravessar tudo sozinha.</em>
-            </h2>
-            <p>
-              Se desejar conhecer melhor o atendimento, escreva para mim. Sem
-              pressa e sem compromisso de começar antes de se sentir pronta.
-            </p>
-            <a
-              className="button button--light"
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Conversar pelo WhatsApp
-              <ArrowUpRight aria-hidden="true" />
-            </a>
+          <div className="container closing-layout">
+            <div className="closing-inner">
+              <p className="eyebrow eyebrow--light">Seu primeiro passo</p>
+              <h2 id="closing-title">
+                Talvez voltar para si comece com a decisão de <em>não atravessar tudo sozinha.</em>
+              </h2>
+              <p>
+                Se desejar conhecer melhor o atendimento, escreva para mim. Sem
+                pressa e sem compromisso de começar antes de se sentir pronta.
+              </p>
+              <a
+                className="button button--light"
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Conversar pelo WhatsApp
+                <ArrowUpRight aria-hidden="true" />
+              </a>
+            </div>
+
+            <ContactForm />
           </div>
         </section>
       </main>
@@ -476,7 +481,14 @@ export default function Home() {
             >
               Instagram · @breytillak <ArrowUpRight aria-hidden="true" />
             </a>
+            <a href="/privacidade">
+              Aviso de Privacidade <ArrowUpRight aria-hidden="true" />
+            </a>
           </div>
+        </div>
+
+        <div className="container footer-newsletter">
+          <NewsletterForm />
         </div>
 
         <div className="container emergency-note">
