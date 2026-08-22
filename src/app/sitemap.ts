@@ -1,6 +1,10 @@
 import type { MetadataRoute } from "next";
+import { listPublishedPosts } from "@/server/admin/posts";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export const dynamic = "force-dynamic";
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const posts = await listPublishedPosts();
   return [
     {
       url: "https://breytilla.com.br",
@@ -14,5 +18,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 0.3,
     },
+    {
+      url: "https://breytilla.com.br/blog",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.7,
+    },
+    ...posts.map((post) => ({
+      url: `https://breytilla.com.br/blog/${encodeURIComponent(post.slug)}`,
+      lastModified: post.updatedAt,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })),
   ];
 }

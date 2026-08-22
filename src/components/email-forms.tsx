@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { type FormEvent, useState } from "react";
 
 const CONSENT_VERSION = "2026-08-20";
@@ -207,7 +208,7 @@ export function ContactForm() {
           <span>
             Também quero receber conteúdos e novidades por e-mail. A inscrição
             só será concluída depois da minha confirmação. Consulte o{" "}
-            <a href="/privacidade">Aviso de Privacidade</a>.
+            <Link href="/privacidade">Aviso de Privacidade</Link>.
           </span>
         </label>
 
@@ -355,7 +356,7 @@ export function NewsletterForm() {
           <span>
             Quero receber conteúdos e novidades por e-mail e entendo que
             precisarei confirmar minha inscrição. Li o{" "}
-            <a href="/privacidade">Aviso de Privacidade</a>.
+            <Link href="/privacidade">Aviso de Privacidade</Link>.
           </span>
         </label>
 

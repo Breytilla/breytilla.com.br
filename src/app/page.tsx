@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowDown, ArrowUpRight, Diamond } from "lucide-react";
 import { ContactForm, NewsletterForm } from "@/components/email-forms";
 
@@ -129,6 +130,7 @@ export default function Home() {
           <nav className="main-nav" aria-label="Navegação principal">
             <a href="#psicoterapia">Psicoterapia</a>
             <a href="#sobre">Sobre</a>
+            <Link href="/blog">Blog</Link>
             <a href="#duvidas">Dúvidas</a>
           </nav>
 
@@ -481,9 +483,12 @@ export default function Home() {
             >
               Instagram · @breytillak <ArrowUpRight aria-hidden="true" />
             </a>
-            <a href="/privacidade">
+            <Link href="/privacidade">
               Aviso de Privacidade <ArrowUpRight aria-hidden="true" />
-            </a>
+            </Link>
+            <Link href="/blog">
+              Blog <ArrowUpRight aria-hidden="true" />
+            </Link>
           </div>
         </div>
 

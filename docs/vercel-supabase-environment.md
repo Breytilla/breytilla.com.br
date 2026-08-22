@@ -46,10 +46,16 @@ Abra **Vercel > projeto > Settings > Environment Variables**. Cadastre em
 | `RESEND_MARKETING_SEGMENT_ID` | ID do Segment criado no Resend |
 | `CRON_SECRET` | Segredo aleatório com pelo menos 32 caracteres |
 | `EMAIL_OUTBOX_ENCRYPTION_KEY` | Outro segredo aleatório, estável, com pelo menos 32 caracteres |
+| `ADMIN_ROUTE_KEY` | Palavra discreta usada somente no endereço de entrada do painel |
+| `ADMIN_USERNAME` | Usuário/e-mail autorizado a entrar no painel |
+| `ADMIN_DISPLAY_NAME` | Nome exibido na interface administrativa |
+| `ADMIN_PASSWORD_HASH` | Hash `scrypt...` gerado por `npm run admin:hash-password` |
+| `ADMIN_SESSION_SECRET` | Terceiro segredo aleatório, exclusivo para fingerprints de segurança |
 
 No painel da Vercel, marque como **Sensitive** as duas URLs de banco, as chaves
-Resend, o signing secret, `CRON_SECRET` e `EMAIL_OUTBOX_ENCRYPTION_KEY`. Gere os
-dois últimos separadamente, executando este comando duas vezes e sem reutilizar
+Resend, o signing secret, `CRON_SECRET`, `EMAIL_OUTBOX_ENCRYPTION_KEY`,
+`ADMIN_PASSWORD_HASH` e `ADMIN_SESSION_SECRET`. Gere os três segredos aleatórios
+separadamente, sem reutilizar
 o resultado:
 
 ```bash

@@ -28,6 +28,11 @@ const marketingEnvSchema = z.object({
   RESEND_MARKETING_SEGMENT_ID: z.string().min(1),
 });
 
+const campaignEnvSchema = marketingEnvSchema.extend({
+  EMAIL_MARKETING_FROM: z.string().min(3),
+  EMAIL_REPLY_TO: z.string().email(),
+});
+
 const webhookEnvSchema = z.object({
   RESEND_WEBHOOK_SECRET: z.string().min(1),
 });
@@ -42,6 +47,7 @@ type CronEnv = z.infer<typeof cronEnvSchema>;
 type OutboxEncryptionEnv = z.infer<typeof outboxEncryptionEnvSchema>;
 type TransactionalEnv = z.infer<typeof transactionalEnvSchema>;
 type MarketingEnv = z.infer<typeof marketingEnvSchema>;
+type CampaignEnv = z.infer<typeof campaignEnvSchema>;
 type WebhookEnv = z.infer<typeof webhookEnvSchema>;
 
 let databaseEnv: DatabaseEnv | undefined;
@@ -50,6 +56,7 @@ let cronEnv: CronEnv | undefined;
 let outboxEncryptionEnv: OutboxEncryptionEnv | undefined;
 let transactionalEnv: TransactionalEnv | undefined;
 let marketingEnv: MarketingEnv | undefined;
+let campaignEnv: CampaignEnv | undefined;
 let webhookEnv: WebhookEnv | undefined;
 
 /** Reads database configuration on first runtime use, never during module load. */
@@ -88,6 +95,12 @@ export function getTransactionalEnv(): TransactionalEnv {
 export function getMarketingEnv(): MarketingEnv {
   marketingEnv ??= marketingEnvSchema.parse(process.env);
   return marketingEnv;
+}
+
+/** Reads the sender and audience settings required to manage Broadcast drafts. */
+export function getCampaignEnv(): CampaignEnv {
+  campaignEnv ??= campaignEnvSchema.parse(process.env);
+  return campaignEnv;
 }
 
 /** Reads the credentials required to authenticate a Resend webhook. */

@@ -100,6 +100,46 @@ if (cronSecret && encryptionKey && cronSecret === encryptionKey) {
   errors.push("CRON_SECRET e EMAIL_OUTBOX_ENCRYPTION_KEY devem ser distintos");
 }
 
+const adminRouteKey = requireValue("ADMIN_ROUTE_KEY");
+if (
+  adminRouteKey &&
+  !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(adminRouteKey)
+) {
+  errors.push(
+    "ADMIN_ROUTE_KEY: use letras minúsculas, números e hífens, sem barras ou espaços",
+  );
+}
+if (adminRouteKey && (adminRouteKey.length < 6 || adminRouteKey.length > 64)) {
+  errors.push("ADMIN_ROUTE_KEY: use entre 6 e 64 caracteres");
+}
+if (["blog", "privacidade", "newsletter", "api"].includes(adminRouteKey)) {
+  errors.push("ADMIN_ROUTE_KEY: escolha uma palavra que não conflite com rotas públicas");
+}
+
+requireValue("ADMIN_USERNAME");
+requireValue("ADMIN_DISPLAY_NAME");
+
+const adminPasswordHash = requireValue("ADMIN_PASSWORD_HASH");
+if (
+  adminPasswordHash &&
+  !/^scrypt\.32768\.8\.1\.[A-Za-z0-9_-]{22}\.[A-Za-z0-9_-]{86}$/.test(
+    adminPasswordHash,
+  )
+) {
+  errors.push("ADMIN_PASSWORD_HASH: gere o valor com npm run admin:hash-password");
+}
+
+const adminSessionSecret = requireValue("ADMIN_SESSION_SECRET");
+if (adminSessionSecret && adminSessionSecret.length < 32) {
+  errors.push("ADMIN_SESSION_SECRET: use pelo menos 32 caracteres aleatórios");
+}
+if (
+  adminSessionSecret &&
+  [cronSecret, encryptionKey].some((secret) => secret === adminSessionSecret)
+) {
+  errors.push("ADMIN_SESSION_SECRET deve ser diferente dos demais segredos");
+}
+
 if (
   value("RESEND_TRANSACTIONAL_API_KEY") &&
   value("RESEND_TRANSACTIONAL_API_KEY") === value("RESEND_MARKETING_API_KEY")
@@ -110,7 +150,7 @@ if (
 for (const name of Object.keys(process.env)) {
   if (
     name.startsWith("NEXT_PUBLIC_") &&
-    /(SECRET|SERVICE_ROLE|DATABASE|POSTGRES|RESEND)/.test(name)
+    /(SECRET|PASSWORD|SERVICE_ROLE|DATABASE|POSTGRES|RESEND|ADMIN)/.test(name)
   ) {
     errors.push(`${name}: segredo potencialmente exposto ao navegador`);
   }
