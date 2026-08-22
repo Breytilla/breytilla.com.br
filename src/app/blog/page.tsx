@@ -77,7 +77,15 @@ function dateTime(value: DateValue) {
 
 export default async function BlogPage() {
   await connection();
-  const posts = await listPublishedPosts();
+  let posts: Awaited<ReturnType<typeof listPublishedPosts>> = [];
+  let postsUnavailable = false;
+
+  try {
+    posts = await listPublishedPosts();
+  } catch (error) {
+    postsUnavailable = true;
+    console.error("[blog] Não foi possível carregar os posts publicados.", error);
+  }
 
   return (
     <div className={styles.page}>
@@ -241,15 +249,26 @@ export default async function BlogPage() {
             ) : (
               <div className={styles.emptyState}>
                 <span aria-hidden="true">B</span>
-                <h3>Novos textos estão sendo preparados.</h3>
+                <h3>
+                  {postsUnavailable
+                    ? "Não foi possível trazer os textos agora."
+                    : "Novos textos estão sendo preparados."}
+                </h3>
                 <p>
-                  Em breve, este espaço receberá reflexões para acompanhar você
-                  com cuidado e sem pressa.
+                  {postsUnavailable
+                    ? "A página continua por aqui. Tente novamente em alguns instantes para acessar as leituras."
+                    : "Em breve, este espaço receberá reflexões para acompanhar você com cuidado e sem pressa."}
                 </p>
-                <a className={styles.emptyStateLink} href="#newsletter">
-                  Quero saber quando chegarem
-                  <ArrowDown aria-hidden="true" />
-                </a>
+                {postsUnavailable ? (
+                  <Link className={styles.emptyStateLink} href="/blog" prefetch={false}>
+                    Tentar novamente
+                  </Link>
+                ) : (
+                  <a className={styles.emptyStateLink} href="#newsletter">
+                    Quero saber quando chegarem
+                    <ArrowDown aria-hidden="true" />
+                  </a>
+                )}
               </div>
             )}
           </div>
