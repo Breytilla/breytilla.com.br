@@ -1053,3 +1053,1002 @@
     transition-duration: 0.01ms;
   }
 }
+
+/* Blog home — editorial cover */
+.brandLockup {
+  align-items: center;
+  display: flex;
+  gap: 15px;
+  width: fit-content;
+}
+
+.brandLockup > span {
+  border-left: 1px solid rgba(61, 43, 31, 0.22);
+  color: var(--muted);
+  font-size: 0.56rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  line-height: 1;
+  padding-left: 15px;
+  text-transform: uppercase;
+}
+
+.homeLinkShort {
+  display: none;
+}
+
+.hero {
+  background:
+    linear-gradient(116deg, rgba(245, 239, 230, 0.88), rgba(250, 247, 242, 0.34) 58%),
+    var(--ivory);
+  min-height: min(820px, calc(100svh - 78px));
+  overflow: hidden;
+  padding-block: clamp(76px, 8.5vw, 128px);
+  position: relative;
+}
+
+.heroOrbit {
+  border: 1px solid rgba(196, 149, 106, 0.2);
+  border-radius: 50%;
+  height: 760px;
+  pointer-events: none;
+  position: absolute;
+  right: -420px;
+  top: -430px;
+  width: 760px;
+}
+
+.heroGlow {
+  background: radial-gradient(circle, rgba(212, 169, 161, 0.2), transparent 68%);
+  border-radius: 50%;
+  bottom: -290px;
+  height: 600px;
+  left: -270px;
+  pointer-events: none;
+  position: absolute;
+  width: 600px;
+}
+
+.heroGrid {
+  align-items: center;
+  display: grid;
+  gap: clamp(74px, 10vw, 148px);
+  grid-template-columns: minmax(0, 1.12fr) minmax(340px, 0.72fr);
+  position: relative;
+}
+
+.heroCopy {
+  animation: revealUp 680ms ease both;
+  max-width: 760px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  color: var(--cocoa-deep);
+  font-family: var(--font-display);
+  font-size: clamp(5rem, 8vw, 7.7rem);
+  font-weight: 500;
+  letter-spacing: -0.06em;
+  line-height: 0.86;
+  margin-top: 32px;
+  max-width: 800px;
+}
+
+.hero h1 em {
+  color: var(--earth-text);
+  display: block;
+  font-style: italic;
+  font-weight: 500;
+  padding-left: clamp(24px, 5vw, 72px);
+}
+
+.heroLead {
+  color: var(--muted);
+  font-size: clamp(1rem, 1.45vw, 1.14rem);
+  line-height: 1.9;
+  margin-top: 38px;
+  max-width: 610px;
+}
+
+.heroLink,
+.textLink,
+.emptyStateLink {
+  align-items: center;
+  color: var(--cocoa);
+  display: inline-flex;
+  font-size: 0.68rem;
+  font-weight: 700;
+  gap: 12px;
+  letter-spacing: 0.12em;
+  min-height: 48px;
+  position: relative;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.heroLink {
+  margin-top: 30px;
+}
+
+.heroLink::after,
+.textLink::after,
+.emptyStateLink::after {
+  background: currentColor;
+  bottom: 5px;
+  content: "";
+  height: 1px;
+  left: 0;
+  position: absolute;
+  transform: scaleX(0.22);
+  transform-origin: left;
+  transition: transform 220ms ease;
+  width: 100%;
+}
+
+.heroLink svg,
+.textLink svg,
+.emptyStateLink svg {
+  height: 1rem;
+  transition: transform 220ms ease;
+  width: 1rem;
+}
+
+.heroLink:hover::after,
+.heroLink:focus-visible::after,
+.textLink:hover::after,
+.textLink:focus-visible::after,
+.emptyStateLink:hover::after,
+.emptyStateLink:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.heroLink:hover svg,
+.heroLink:focus-visible svg,
+.emptyStateLink:hover svg,
+.emptyStateLink:focus-visible svg {
+  transform: translateY(3px);
+}
+
+.textLink:hover svg,
+.textLink:focus-visible svg {
+  transform: translate(3px, -3px);
+}
+
+.heroMark {
+  aspect-ratio: 4 / 5;
+  background: transparent;
+  display: block;
+  isolation: isolate;
+  justify-self: end;
+  max-width: 430px;
+  overflow: visible;
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
+
+.heroMark::before {
+  border: 1px solid rgba(196, 149, 106, 0.5);
+  border-radius: 220px 220px 8px 8px;
+  content: "";
+  inset: 18px -18px -18px 18px;
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+}
+
+.heroMark::after {
+  background: var(--rose);
+  border: 0;
+  border-radius: 50%;
+  bottom: 14%;
+  content: "";
+  height: 68px;
+  left: -34px;
+  opacity: 0.34;
+  position: absolute;
+  width: 68px;
+  z-index: -1;
+}
+
+.heroImageFrame {
+  border-radius: 220px 220px 8px 8px;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.heroImageFrame::after {
+  background: linear-gradient(180deg, transparent 62%, rgba(42, 31, 26, 0.17));
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.heroImage {
+  object-fit: cover;
+  object-position: 50% 50%;
+  transform: scale(1.025);
+  transition: transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.heroMonogram {
+  align-items: center;
+  background: var(--cocoa-deep);
+  border: 7px solid var(--cream);
+  border-radius: 50%;
+  bottom: 50px;
+  color: var(--earth);
+  display: flex;
+  height: 112px;
+  justify-content: center;
+  left: -56px;
+  position: absolute;
+  width: 112px;
+  z-index: 2;
+}
+
+.heroMonogram::after {
+  border: 1px solid rgba(245, 239, 230, 0.48);
+  border-radius: 50%;
+  content: "";
+  inset: 9px;
+  position: absolute;
+}
+
+.heroMonogram span {
+  font-family: var(--font-display);
+  font-size: 4.35rem;
+  font-style: italic;
+  line-height: 1;
+  margin-left: -4px;
+  margin-top: -7px;
+}
+
+.heroCaption {
+  align-items: center;
+  background: var(--ivory);
+  bottom: -34px;
+  display: flex;
+  gap: 16px;
+  max-width: calc(100% - 36px);
+  padding: 15px 19px;
+  position: absolute;
+  right: -1px;
+  z-index: 2;
+}
+
+.heroCaption > span {
+  color: var(--earth-text);
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-style: italic;
+  line-height: 1;
+}
+
+.heroMark .heroCaption p {
+  color: var(--cocoa);
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.topicsBar {
+  background: var(--cocoa-deep);
+  color: var(--cream);
+  overflow: hidden;
+  padding-block: 24px;
+}
+
+.topicsInner {
+  align-items: center;
+  display: flex;
+  gap: clamp(34px, 5vw, 76px);
+}
+
+.topicsInner > p {
+  color: var(--earth);
+  flex: 0 0 auto;
+  font-family: var(--font-display);
+  font-size: 1.16rem;
+  font-style: italic;
+}
+
+.topicsInner ul {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  gap: 10px clamp(24px, 3vw, 42px);
+  justify-content: space-between;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.topicsInner li {
+  align-items: center;
+  color: rgba(245, 239, 230, 0.7);
+  display: inline-flex;
+  font-size: 0.61rem;
+  font-weight: 600;
+  gap: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.topicsInner li::before {
+  background: var(--earth);
+  border-radius: 50%;
+  content: "";
+  height: 4px;
+  width: 4px;
+}
+
+.postsSection {
+  background: var(--cream);
+  padding-block: clamp(102px, 10vw, 156px);
+  scroll-margin-top: 76px;
+}
+
+.sectionHeading {
+  align-items: end;
+  display: grid;
+  gap: clamp(54px, 8vw, 112px);
+  grid-template-columns: minmax(0, 1.18fr) minmax(280px, 0.52fr);
+}
+
+.sectionHeading h2 {
+  color: var(--cocoa-deep);
+  font-family: var(--font-display);
+  font-size: clamp(3.6rem, 6vw, 5.8rem);
+  font-weight: 500;
+  letter-spacing: -0.052em;
+  line-height: 0.94;
+  margin-top: 24px;
+}
+
+.sectionHeading h2 em {
+  color: var(--earth-text);
+  display: block;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.sectionHeading > p {
+  color: var(--muted);
+  line-height: 1.9;
+  max-width: 440px;
+  padding-bottom: 5px;
+}
+
+.postGrid {
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: clamp(62px, 7vw, 86px);
+}
+
+.postCard {
+  background: var(--ivory);
+  border: 1px solid rgba(61, 43, 31, 0.13);
+  min-width: 0;
+  position: relative;
+  transition: background-color 220ms ease, transform 220ms ease;
+}
+
+.postCard:first-child {
+  background: var(--cocoa-deep);
+  border-color: var(--cocoa-deep);
+  color: var(--cream);
+  grid-column: 1 / -1;
+}
+
+.postLink {
+  display: flex;
+  flex-direction: column;
+  min-height: 370px;
+  overflow: hidden;
+  padding: clamp(32px, 4vw, 50px);
+  position: relative;
+}
+
+.postCard:first-child .postLink {
+  min-height: 430px;
+  padding-right: min(38vw, 470px);
+}
+
+.postCard:first-child .postLink::after {
+  border: 1px solid rgba(196, 149, 106, 0.22);
+  border-radius: 50%;
+  content: "";
+  height: 480px;
+  pointer-events: none;
+  position: absolute;
+  right: -112px;
+  top: -150px;
+  width: 480px;
+}
+
+.postOrdinal {
+  color: rgba(61, 43, 31, 0.2);
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 5vw, 4.6rem);
+  font-style: italic;
+  line-height: 1;
+  position: absolute;
+  right: clamp(28px, 4vw, 48px);
+  top: clamp(28px, 4vw, 44px);
+}
+
+.postCard:first-child .postOrdinal {
+  color: rgba(245, 239, 230, 0.22);
+  right: clamp(28px, 3vw, 42px);
+}
+
+.featuredMonogram {
+  align-items: center;
+  border: 1px solid rgba(196, 149, 106, 0.46);
+  border-radius: 50%;
+  color: var(--earth);
+  display: flex;
+  font-family: var(--font-display);
+  font-size: clamp(5rem, 8vw, 7.3rem);
+  font-style: italic;
+  height: 190px;
+  justify-content: center;
+  line-height: 1;
+  position: absolute;
+  right: clamp(76px, 10vw, 140px);
+  top: 50%;
+  transform: translateY(-48%);
+  width: 190px;
+  z-index: 1;
+}
+
+.featuredMonogram::after {
+  border: 1px solid rgba(245, 239, 230, 0.13);
+  border-radius: 50%;
+  content: "";
+  inset: 12px;
+  position: absolute;
+}
+
+.postCopy {
+  margin-top: auto;
+  padding-top: 56px;
+  position: relative;
+  z-index: 2;
+}
+
+.postCard:first-child .postCopy .featuredLabel {
+  color: var(--earth);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+  margin: 0 0 16px;
+  text-transform: uppercase;
+}
+
+.postCopy h3 {
+  color: var(--cocoa-deep);
+  font-family: var(--font-display);
+  font-size: clamp(2.15rem, 3.5vw, 3.2rem);
+  font-weight: 600;
+  letter-spacing: -0.038em;
+  line-height: 1.04;
+  max-width: 740px;
+  overflow-wrap: anywhere;
+}
+
+.postCard:first-child .postCopy h3 {
+  color: var(--cream);
+  font-size: clamp(3rem, 5vw, 4.8rem);
+  font-weight: 500;
+  max-width: 700px;
+}
+
+.postCopy p:not(.featuredLabel) {
+  color: var(--muted);
+  line-height: 1.8;
+  margin-top: 20px;
+  max-width: 650px;
+}
+
+.postCard:first-child .postCopy p:not(.featuredLabel) {
+  color: rgba(245, 239, 230, 0.7);
+}
+
+.emptyState {
+  align-items: center;
+  background: var(--ivory);
+  border: 1px solid rgba(61, 43, 31, 0.14);
+  display: flex;
+  flex-direction: column;
+  margin-top: clamp(62px, 7vw, 86px);
+  min-height: 430px;
+  overflow: hidden;
+  padding: 58px 28px;
+  position: relative;
+  text-align: center;
+}
+
+.emptyState::after {
+  border: 1px solid rgba(196, 149, 106, 0.2);
+  border-radius: 50%;
+  content: "";
+  height: 380px;
+  pointer-events: none;
+  position: absolute;
+  right: -235px;
+  top: -220px;
+  width: 380px;
+}
+
+.emptyStateLink {
+  color: var(--earth-text);
+  margin-top: 24px;
+}
+
+.journalNote {
+  background: var(--earth);
+  color: var(--cocoa-deep);
+  overflow: hidden;
+  padding-block: clamp(94px, 10vw, 150px);
+  position: relative;
+}
+
+.journalNote::after {
+  border: 1px solid rgba(61, 43, 31, 0.13);
+  border-radius: 50%;
+  content: "";
+  height: 620px;
+  pointer-events: none;
+  position: absolute;
+  right: -360px;
+  top: -360px;
+  width: 620px;
+}
+
+.journalNoteGrid {
+  align-items: center;
+  display: grid;
+  gap: clamp(72px, 10vw, 150px);
+  grid-template-columns: minmax(300px, 0.68fr) minmax(0, 1.15fr);
+  position: relative;
+  z-index: 1;
+}
+
+.journalSignature {
+  align-items: center;
+  aspect-ratio: 4 / 5;
+  background: var(--cocoa-deep);
+  color: var(--cream);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 400px;
+  overflow: hidden;
+  padding: 38px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+.journalSignature::before,
+.journalSignature::after {
+  border: 1px solid rgba(196, 149, 106, 0.23);
+  border-radius: 50%;
+  content: "";
+  position: absolute;
+}
+
+.journalSignature::before {
+  height: 290px;
+  right: -185px;
+  top: -145px;
+  width: 290px;
+}
+
+.journalSignature::after {
+  bottom: -120px;
+  height: 220px;
+  left: -120px;
+  width: 220px;
+}
+
+.signatureOrbit {
+  align-items: center;
+  border: 1px solid rgba(196, 149, 106, 0.58);
+  border-radius: 50%;
+  color: var(--earth);
+  display: flex;
+  height: 148px;
+  justify-content: center;
+  position: relative;
+  width: 148px;
+}
+
+.signatureOrbit::after {
+  border: 1px solid rgba(245, 239, 230, 0.18);
+  border-radius: 50%;
+  content: "";
+  inset: 10px;
+  position: absolute;
+}
+
+.signatureOrbit span {
+  font-family: var(--font-display);
+  font-size: 6rem;
+  font-style: italic;
+  line-height: 1;
+  margin-left: -7px;
+  margin-top: -8px;
+}
+
+.journalSignature > p {
+  color: rgba(245, 239, 230, 0.68);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.17em;
+  margin-top: 34px;
+  position: relative;
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+.journalNoteCopy .eyebrow {
+  color: var(--cocoa-deep);
+}
+
+.journalNoteCopy .eyebrow::before {
+  background: var(--cocoa-deep);
+}
+
+.journalNoteCopy h2 {
+  color: var(--cocoa-deep);
+  font-family: var(--font-display);
+  font-size: clamp(3.8rem, 6vw, 5.8rem);
+  font-weight: 500;
+  letter-spacing: -0.052em;
+  line-height: 0.95;
+  margin-top: 26px;
+  max-width: 700px;
+}
+
+.journalNoteCopy h2 em {
+  color: var(--cocoa);
+  display: block;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.journalNoteCopy > p:not(.eyebrow) {
+  color: var(--cocoa-deep);
+  line-height: 1.9;
+  margin-top: 30px;
+  max-width: 650px;
+}
+
+.journalNoteCopy .textLink {
+  color: var(--cocoa-deep);
+  margin-top: 26px;
+}
+
+.newsletterSection {
+  background: var(--cocoa);
+  color: var(--cream);
+  overflow: hidden;
+  padding-block: clamp(34px, 5vw, 64px);
+  position: relative;
+  scroll-margin-top: 74px;
+}
+
+.newsletterOrbit {
+  border: 1px solid rgba(196, 149, 106, 0.2);
+  border-radius: 50%;
+  height: 520px;
+  pointer-events: none;
+  position: absolute;
+  right: -310px;
+  top: -310px;
+  width: 520px;
+}
+
+.newsletterSection :global(.newsletter-panel) {
+  position: relative;
+  z-index: 1;
+}
+
+.newsletterSection :global(.email-form--newsletter input[type="text"]),
+.newsletterSection :global(.email-form--newsletter input[type="email"]) {
+  background: rgba(250, 247, 242, 0.1);
+  border-color: rgba(245, 239, 230, 0.64);
+}
+
+.newsletterSection :global(:focus-visible) {
+  outline-color: var(--cream);
+}
+
+@media (hover: hover) {
+  .heroMark:hover .heroImage {
+    transform: scale(1.055);
+  }
+}
+
+@media (max-width: 1040px) {
+  .heroGrid {
+    gap: 68px;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 0.62fr);
+  }
+
+  .postCard:first-child .postLink {
+    padding-right: 390px;
+  }
+
+  .featuredMonogram {
+    right: 90px;
+  }
+}
+
+@media (max-width: 920px) {
+  .hero {
+    min-height: auto;
+    padding-block: 74px 112px;
+  }
+
+  .heroGrid,
+  .sectionHeading,
+  .journalNoteGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heroCopy {
+    max-width: 720px;
+  }
+
+  .hero h1 {
+    font-size: clamp(4.6rem, 12vw, 6.4rem);
+  }
+
+  .heroMark {
+    aspect-ratio: 16 / 10;
+    justify-self: center;
+    margin-top: 16px;
+    max-width: 650px;
+  }
+
+  .heroImageFrame,
+  .heroMark::before {
+    border-radius: 290px 290px 8px 8px;
+  }
+
+  .heroImage {
+    object-position: 50% 61%;
+  }
+
+  .heroMonogram {
+    bottom: 34px;
+    left: -30px;
+  }
+
+  .topicsInner {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 17px;
+  }
+
+  .topicsInner ul {
+    justify-content: flex-start;
+  }
+
+  .sectionHeading {
+    align-items: start;
+    gap: 30px;
+  }
+
+  .sectionHeading > p {
+    max-width: 640px;
+  }
+
+  .postGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .postCard:first-child {
+    grid-column: auto;
+  }
+
+  .postCard:first-child .postLink {
+    min-height: 410px;
+    padding-right: clamp(30px, 8vw, 70px);
+  }
+
+  .postCard:first-child .postLink::after {
+    right: -270px;
+  }
+
+  .featuredMonogram {
+    display: none;
+  }
+
+  .journalNoteGrid {
+    gap: 62px;
+  }
+
+  .journalSignature {
+    aspect-ratio: 16 / 9;
+    justify-self: center;
+    max-width: 650px;
+  }
+}
+
+@media (max-width: 560px) {
+  .brandLockup {
+    gap: 10px;
+  }
+
+  .brandLockup > span {
+    font-size: 0.5rem;
+    letter-spacing: 0.13em;
+    padding-left: 10px;
+  }
+
+  .homeLinkFull {
+    display: none;
+  }
+
+  .homeLinkShort {
+    display: inline;
+  }
+
+  .hero {
+    padding-block: 60px 96px;
+  }
+
+  .hero h1 {
+    font-size: clamp(3.7rem, 17vw, 5rem);
+    line-height: 0.88;
+    margin-top: 27px;
+  }
+
+  .hero h1 em {
+    padding-left: 18px;
+  }
+
+  .heroLead {
+    line-height: 1.8;
+    margin-top: 30px;
+  }
+
+  .heroMark {
+    aspect-ratio: 4 / 3;
+    margin-top: 6px;
+    width: calc(100% - 20px);
+  }
+
+  .heroMark::before {
+    inset: 10px -10px -10px 10px;
+  }
+
+  .heroMonogram {
+    border-width: 5px;
+    bottom: 22px;
+    height: 86px;
+    left: -25px;
+    width: 86px;
+  }
+
+  .heroMonogram span {
+    font-size: 3.25rem;
+  }
+
+  .heroCaption {
+    bottom: -28px;
+    gap: 11px;
+    padding: 11px 13px;
+  }
+
+  .heroCaption > span {
+    font-size: 1.45rem;
+  }
+
+  .heroMark .heroCaption p {
+    font-size: 0.48rem;
+    letter-spacing: 0.11em;
+  }
+
+  .topicsBar {
+    padding-block: 22px;
+  }
+
+  .topicsInner ul {
+    column-gap: 20px;
+    row-gap: 12px;
+  }
+
+  .topicsInner li {
+    font-size: 0.56rem;
+  }
+
+  .postsSection,
+  .journalNote {
+    padding-block: 84px;
+  }
+
+  .sectionHeading h2,
+  .journalNoteCopy h2 {
+    font-size: clamp(3rem, 14vw, 4rem);
+  }
+
+  .postGrid,
+  .emptyState {
+    margin-top: 50px;
+  }
+
+  .postLink,
+  .postCard:first-child .postLink {
+    min-height: 340px;
+    padding: 31px 26px;
+  }
+
+  .postOrdinal {
+    font-size: 3rem;
+    right: 25px;
+    top: 28px;
+  }
+
+  .postCopy {
+    padding-top: 52px;
+  }
+
+  .postCopy h3,
+  .postCard:first-child .postCopy h3 {
+    font-size: clamp(2.2rem, 10.5vw, 3rem);
+  }
+
+  .postCopy p:not(.featuredLabel) {
+    line-height: 1.72;
+  }
+
+  .emptyState {
+    min-height: 400px;
+    padding-inline: 24px;
+  }
+
+  .journalSignature {
+    aspect-ratio: 1 / 1;
+    padding: 30px;
+  }
+
+  .signatureOrbit {
+    height: 122px;
+    width: 122px;
+  }
+
+  .signatureOrbit span {
+    font-size: 5rem;
+  }
+
+  .journalSignature > p {
+    font-size: 0.52rem;
+    margin-top: 26px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroImage,
+  .heroLink::after,
+  .textLink::after,
+  .emptyStateLink::after,
+  .heroLink svg,
+  .textLink svg,
+  .emptyStateLink svg {
+    transition-duration: 0.01ms;
+  }
+}

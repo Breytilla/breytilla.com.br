@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { connection } from "next/server";
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { ArrowDown, ArrowLeft, ArrowUpRight } from "lucide-react";
+import { NewsletterForm } from "@/components/email-forms";
 import { listPublishedPosts } from "@/server/admin/posts";
 import styles from "./blog.module.css";
 
@@ -10,6 +12,14 @@ type DateValue = Date | string | null;
 const pageTitle = "Blog | Breytilla Psicologia";
 const pageDescription =
   "Reflexões sobre ansiedade, autoestima, relacionamentos, autocuidado e presença, por Breytilla Katyeliny Silva Souza.";
+
+const editorialTopics = [
+  "Ansiedade",
+  "Autoestima",
+  "Relacionamentos",
+  "Autocuidado",
+  "Presença",
+];
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -77,19 +87,25 @@ export default async function BlogPage() {
 
       <header className={styles.siteHeader}>
         <div className={`${styles.container} ${styles.headerInner}`}>
-          <Link className={styles.wordmark} href="/" aria-label="Breytilla — início">
-            Brey<em>tilla</em>
-          </Link>
+          <div className={styles.brandLockup}>
+            <Link className={styles.wordmark} href="/" aria-label="Breytilla — início">
+              Brey<em>tilla</em>
+            </Link>
+            <span aria-hidden="true">Caderno</span>
+          </div>
 
           <nav className={styles.mainNav} aria-label="Navegação do blog">
             <Link href="/">Início</Link>
-            <Link href="/#psicoterapia">Psicoterapia</Link>
+            <Link href="/blog" aria-current="page">
+              Blog
+            </Link>
             <Link href="/#sobre">Sobre</Link>
           </nav>
 
           <Link className={styles.homeLink} href="/">
             <ArrowLeft aria-hidden="true" />
-            Voltar ao site
+            <span className={styles.homeLinkFull}>Voltar ao site</span>
+            <span className={styles.homeLinkShort}>Site</span>
           </Link>
         </div>
       </header>
@@ -97,35 +113,76 @@ export default async function BlogPage() {
       <main id="conteudo-blog">
         <section className={styles.hero} aria-labelledby="blog-title">
           <div className={styles.heroOrbit} aria-hidden="true" />
+          <div className={styles.heroGlow} aria-hidden="true" />
+
           <div className={`${styles.container} ${styles.heroGrid}`}>
             <div className={styles.heroCopy}>
-              <p className={styles.eyebrow}>Blog · reflexões e cuidado</p>
+              <p className={styles.eyebrow}>Caderno Breytilla · psicologia e cotidiano</p>
               <h1 id="blog-title">
-                Um espaço para continuar <em>essa conversa.</em>
+                Palavras para <em>voltar a si.</em>
               </h1>
               <p className={styles.heroLead}>
-                Textos para olhar com mais presença para o que você sente, para
-                suas relações e para os caminhos que vem construindo.
+                Reflexões sobre ansiedade, autoestima, relações e presença —
+                para ler sem pressa, guardar o que fizer sentido e levar consigo.
               </p>
+
+              <a className={styles.heroLink} href="#artigos">
+                Começar a leitura
+                <ArrowDown aria-hidden="true" />
+              </a>
             </div>
 
             <div className={styles.heroMark} aria-hidden="true">
-              <span>B</span>
-              <p>presença · escuta · encontro</p>
+              <div className={styles.heroImageFrame}>
+                <Image
+                  src="/hero-editorial.webp"
+                  alt=""
+                  fill
+                  preload
+                  sizes="(max-width: 820px) 86vw, (max-width: 1200px) 38vw, 430px"
+                  className={styles.heroImage}
+                />
+              </div>
+
+              <div className={styles.heroMonogram}>
+                <span>B</span>
+              </div>
+
+              <div className={styles.heroCaption}>
+                <span>01</span>
+                <p>presença · escuta · encontro</p>
+              </div>
             </div>
           </div>
         </section>
 
-        <section className={styles.postsSection} aria-labelledby="posts-title">
+        <aside className={styles.topicsBar} aria-label="Temas do Caderno Breytilla">
+          <div className={`${styles.container} ${styles.topicsInner}`}>
+            <p>Por aqui, conversamos sobre</p>
+            <ul>
+              {editorialTopics.map((topic) => (
+                <li key={topic}>{topic}</li>
+              ))}
+            </ul>
+          </div>
+        </aside>
+
+        <section
+          className={styles.postsSection}
+          id="artigos"
+          aria-labelledby="posts-title"
+        >
           <div className={styles.container}>
             <div className={styles.sectionHeading}>
               <div>
-                <p className={styles.eyebrow}>Caderno Breytilla</p>
-                <h2 id="posts-title">Textos mais recentes</h2>
+                <p className={styles.eyebrow}>Leituras para este momento</p>
+                <h2 id="posts-title">
+                  Textos para ler <em>com calma.</em>
+                </h2>
               </div>
               <p>
-                Conteúdos sobre autocuidado, ansiedade, autoestima,
-                relacionamentos e o encontro consigo mesma.
+                Um caderno de perguntas, descobertas e pequenos deslocamentos
+                para acompanhar você no encontro com a própria experiência.
               </p>
             </div>
 
@@ -154,7 +211,20 @@ export default async function BlogPage() {
                           ) : null}
                         </div>
 
+                        <span className={styles.postOrdinal} aria-hidden="true">
+                          {String(index + 1).padStart(2, "0")}
+                        </span>
+
+                        {index === 0 ? (
+                          <span className={styles.featuredMonogram} aria-hidden="true">
+                            B
+                          </span>
+                        ) : null}
+
                         <div className={styles.postCopy}>
+                          {index === 0 ? (
+                            <p className={styles.featuredLabel}>Leitura em destaque</p>
+                          ) : null}
                           <h3 id={titleId}>{post.title}</h3>
                           <p>{post.excerpt}</p>
                         </div>
@@ -169,17 +239,56 @@ export default async function BlogPage() {
                 })}
               </div>
             ) : (
-              <div className={styles.emptyState} role="status">
+              <div className={styles.emptyState}>
                 <span aria-hidden="true">B</span>
                 <h3>Novos textos estão sendo preparados.</h3>
                 <p>
                   Em breve, este espaço receberá reflexões para acompanhar você
                   com cuidado e sem pressa.
                 </p>
+                <a className={styles.emptyStateLink} href="#newsletter">
+                  Quero saber quando chegarem
+                  <ArrowDown aria-hidden="true" />
+                </a>
               </div>
             )}
           </div>
         </section>
+
+        <section className={styles.journalNote} aria-labelledby="journal-note-title">
+          <div className={`${styles.container} ${styles.journalNoteGrid}`}>
+            <div className={styles.journalSignature} aria-hidden="true">
+              <div className={styles.signatureOrbit}>
+                <span>B</span>
+              </div>
+              <p>Breytilla · psicóloga e escritora</p>
+            </div>
+
+            <div className={styles.journalNoteCopy}>
+              <p className={styles.eyebrow}>Por trás das palavras</p>
+              <h2 id="journal-note-title">
+                Uma escrita que nasce da <em>escuta.</em>
+              </h2>
+              <p>
+                Este caderno prolonga algumas das perguntas que atravessam meu
+                trabalho como psicóloga. Não para oferecer respostas prontas,
+                mas para abrir pausas, ampliar olhares e ajudar você a reconhecer
+                o que pede atenção no aqui e agora.
+              </p>
+              <Link className={styles.textLink} href="/#sobre">
+                Conheça meu trabalho
+                <ArrowUpRight aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <div className={styles.newsletterSection} id="newsletter">
+          <div className={styles.newsletterOrbit} aria-hidden="true" />
+          <div className={styles.container}>
+            <NewsletterForm />
+          </div>
+        </div>
       </main>
 
       <footer className={styles.footer}>
@@ -198,6 +307,13 @@ export default async function BlogPage() {
 
           <nav className={styles.footerNav} aria-label="Links do rodapé">
             <Link href="/">Site</Link>
+            <a
+              href="https://instagram.com/breytillak"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Instagram
+            </a>
             <Link href="/privacidade">Privacidade</Link>
           </nav>
         </div>
