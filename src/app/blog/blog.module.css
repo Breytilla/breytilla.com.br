@@ -1829,7 +1829,7 @@
   }
 
   .heroImage {
-    object-position: 50% 61%;
+    object-position: 50% 34%;
   }
 
   .heroMonogram {
@@ -1934,6 +1934,10 @@
 
   .heroMark::before {
     inset: 10px -10px -10px 10px;
+  }
+
+  .heroImage {
+    object-position: 50% 30%;
   }
 
   .heroMonogram {

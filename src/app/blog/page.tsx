@@ -140,23 +140,23 @@ export default async function BlogPage() {
               </a>
             </div>
 
-            <div className={styles.heroMark} aria-hidden="true">
+            <div className={styles.heroMark}>
               <div className={styles.heroImageFrame}>
                 <Image
-                  src="/hero-editorial.webp"
-                  alt=""
+                  src="/blog-hero-editorial.webp"
+                  alt="Mulher sorrindo entre livros e plantas em luz natural"
                   fill
                   preload
-                  sizes="(max-width: 820px) 86vw, (max-width: 1200px) 38vw, 430px"
+                  sizes="(max-width: 920px) 86vw, (max-width: 1200px) 38vw, 430px"
                   className={styles.heroImage}
                 />
               </div>
 
-              <div className={styles.heroMonogram}>
+              <div className={styles.heroMonogram} aria-hidden="true">
                 <span>B</span>
               </div>
 
-              <div className={styles.heroCaption}>
+              <div className={styles.heroCaption} aria-hidden="true">
                 <span>01</span>
                 <p>presença · escuta · encontro</p>
               </div>
