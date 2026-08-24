@@ -10,6 +10,10 @@ const eslintConfig = defineConfig([
     // Default ignores of eslint-config-next:
     ".next/**",
     ".react-email/**",
+    ".agents/**",
+    ".claude/**",
+    ".cursor/**",
+    ".windsurf/**",
     "out/**",
     "build/**",
     "next-env.d.ts",

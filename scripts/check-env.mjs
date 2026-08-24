@@ -46,6 +46,13 @@ if (appUrl?.startsWith("http://") && !appUrl.includes("localhost")) {
   errors.push("APP_URL: use HTTPS fora do desenvolvimento local");
 }
 
+const googleAnalyticsId = requireValue("NEXT_PUBLIC_GOOGLE_ANALYTICS_ID");
+if (googleAnalyticsId && !/^G-[A-Z0-9]{6,}$/.test(googleAnalyticsId)) {
+  errors.push(
+    "NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: use o Measurement ID do GA4 no formato G-XXXXXXXXXX",
+  );
+}
+
 const runtimeDatabase = firstValue(["DATABASE_URL", "POSTGRES_URL"]);
 if (!runtimeDatabase) {
   errors.push("DATABASE_URL ou POSTGRES_URL: ausente");

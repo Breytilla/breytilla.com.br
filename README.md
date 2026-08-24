@@ -31,3 +31,5 @@ npm run admin:hash-password
 ```
 
 O acesso administrativo está documentado em [docs/admin-operations.md](docs/admin-operations.md). O provisionamento de banco, DNS, chaves, webhook, cron, campanhas e a migração do SendPulse está documentado em [docs/email-operations.md](docs/email-operations.md). Para criar as variáveis na Vercel usando as conexões da Supabase, siga [docs/vercel-supabase-environment.md](docs/vercel-supabase-environment.md). Nenhum envio, migração ou alteração de DNS ocorre durante o build.
+
+A configuração, o consentimento e a validação do GA4 estão documentados em [docs/google-analytics.md](docs/google-analytics.md).

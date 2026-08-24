@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowDown, ArrowUpRight, Diamond } from "lucide-react";
 import { ContactForm, NewsletterForm } from "@/components/email-forms";
+import { PublicAnalytics } from "@/components/public-analytics";
 
 const whatsappMessage =
   "Olá, Breytilla. Encontrei seu site e gostaria de saber mais sobre a psicoterapia online.";
@@ -532,6 +533,7 @@ export default function Home() {
           __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
         }}
       />
+      <PublicAnalytics />
     </>
   );
 }
