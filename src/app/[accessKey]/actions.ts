@@ -21,14 +21,7 @@ import {
   saveBlogPost,
   type BlogPostInput,
 } from "@/server/admin/posts";
-
-export type AdminActionState = {
-  status: "idle" | "error" | "success";
-  message?: string;
-  fieldErrors?: Record<string, string[]>;
-};
-
-export const initialAdminActionState: AdminActionState = { status: "idle" };
+import type { AdminActionState } from "@/lib/admin-action-state";
 
 const loginSchema = z.object({
   username: z.string().trim().min(1).max(160),

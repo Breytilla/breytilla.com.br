@@ -4,10 +4,8 @@ import Link from "next/link";
 import { useActionState, useEffect, useRef, useState } from "react";
 import { ExternalLink, LoaderCircle, Save } from "lucide-react";
 
-import {
-  initialAdminActionState,
-  savePostAction,
-} from "@/app/[accessKey]/actions";
+import { savePostAction } from "@/app/[accessKey]/actions";
+import { initialAdminActionState } from "@/lib/admin-action-state";
 import styles from "./admin.module.css";
 import { useUnsavedChanges } from "./use-unsaved-changes";
 

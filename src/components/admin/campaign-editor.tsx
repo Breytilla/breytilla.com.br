@@ -5,7 +5,7 @@ import { useActionState, useEffect, useRef, useState } from "react";
 import { CheckCircle2, LoaderCircle, Save } from "lucide-react";
 
 import { saveCampaignAction } from "@/app/[accessKey]/campaign-actions";
-import { initialAdminActionState } from "@/app/[accessKey]/actions";
+import { initialAdminActionState } from "@/lib/admin-action-state";
 import styles from "./admin.module.css";
 import { useUnsavedChanges } from "./use-unsaved-changes";
 

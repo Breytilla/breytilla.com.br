@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
-import type { AdminActionState } from "./actions";
+import type { AdminActionState } from "@/lib/admin-action-state";
 import { getAdminSession, isAdminRouteKey } from "@/server/admin/auth";
 import {
   AdminCampaignError,

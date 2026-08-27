@@ -4,7 +4,7 @@ import { useActionState } from "react";
 import { LoaderCircle, Send } from "lucide-react";
 
 import { sendCampaignAction } from "@/app/[accessKey]/campaign-actions";
-import { initialAdminActionState } from "@/app/[accessKey]/actions";
+import { initialAdminActionState } from "@/lib/admin-action-state";
 import styles from "./admin.module.css";
 
 export function CampaignSendForm({

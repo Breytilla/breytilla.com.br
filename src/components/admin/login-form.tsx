@@ -3,10 +3,8 @@
 import { useActionState, useState } from "react";
 import { Eye, EyeOff, LoaderCircle, LockKeyhole } from "lucide-react";
 
-import {
-  initialAdminActionState,
-  loginAdminAction,
-} from "@/app/[accessKey]/actions";
+import { loginAdminAction } from "@/app/[accessKey]/actions";
+import { initialAdminActionState } from "@/lib/admin-action-state";
 import styles from "./admin.module.css";
 
 export function AdminLoginForm({ accessKey }: { accessKey: string }) {
