@@ -17,7 +17,9 @@ tentativas, sessão opaca revogável no PostgreSQL e cookie `HttpOnly`.
    npm run admin:hash-password
    ```
 
-   Copie somente o resultado `scrypt...` para `ADMIN_PASSWORD_HASH`.
+   Use uma senha com pelo menos 8 caracteres. Uma frase-senha mais longa continua
+   sendo recomendada. Copie somente o resultado `scrypt...` para
+   `ADMIN_PASSWORD_HASH`.
 4. Gere `ADMIN_SESSION_SECRET` com pelo menos 32 bytes aleatórios e não reutilize
    `CRON_SECRET` nem `EMAIL_OUTBOX_ENCRYPTION_KEY`.
 5. Cadastre as variáveis apenas no servidor/Vercel, sem prefixo `NEXT_PUBLIC_`.

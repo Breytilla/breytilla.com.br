@@ -57,9 +57,15 @@ describe("admin password hashing", () => {
     ).resolves.toBe(false);
   });
 
-  it("não cria hash para senha com menos de 12 caracteres", async () => {
-    await expect(createAdminPasswordHash("curta-12345")).rejects.toThrow(
-      "pelo menos 12 caracteres",
+  it("aceita uma senha com exatamente 8 caracteres", async () => {
+    await expect(createAdminPasswordHash("Abc123!x")).resolves.toMatch(
+      /^scrypt\.32768\.8\.1\./,
+    );
+  });
+
+  it("não cria hash para senha com menos de 8 caracteres", async () => {
+    await expect(createAdminPasswordHash("Ab12!xy")).rejects.toThrow(
+      "pelo menos 8 caracteres",
     );
   });
 

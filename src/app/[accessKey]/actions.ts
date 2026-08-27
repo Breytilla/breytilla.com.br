@@ -32,7 +32,7 @@ export const initialAdminActionState: AdminActionState = { status: "idle" };
 
 const loginSchema = z.object({
   username: z.string().trim().min(1).max(160),
-  password: z.string().min(1).max(512),
+  password: z.string().min(8).max(512),
 });
 
 function formText(formData: FormData, field: string): string {

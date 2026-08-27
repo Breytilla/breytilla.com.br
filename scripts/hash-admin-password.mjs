@@ -4,6 +4,7 @@ const N = 32_768;
 const r = 8;
 const p = 1;
 const keyLength = 64;
+const minimumPasswordLength = 8;
 
 function derive(password, salt) {
   return new Promise((resolve, reject) => {
@@ -74,8 +75,8 @@ function readHidden(prompt) {
 
 try {
   const password = await readHidden("Senha administrativa: ");
-  if (password.length < 12) {
-    throw new Error("Use uma senha com pelo menos 12 caracteres.");
+  if (password.length < minimumPasswordLength) {
+    throw new Error("Use uma senha com pelo menos 8 caracteres.");
   }
   if (password.length > 512) {
     throw new Error("Use uma senha com no máximo 512 caracteres.");

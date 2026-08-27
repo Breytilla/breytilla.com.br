@@ -45,6 +45,7 @@ export function AdminLoginForm({ accessKey }: { accessKey: string }) {
             name="password"
             type={showPassword ? "text" : "password"}
             autoComplete="current-password"
+            minLength={8}
             maxLength={512}
             placeholder="Sua senha"
             required
@@ -85,4 +86,3 @@ export function AdminLoginForm({ accessKey }: { accessKey: string }) {
     </form>
   );
 }
-

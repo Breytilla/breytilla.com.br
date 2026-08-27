@@ -20,6 +20,7 @@ const SCRYPT_KEY_LENGTH = 64;
 const SCRYPT_N = 32_768;
 const SCRYPT_R = 8;
 const SCRYPT_P = 1;
+const ADMIN_PASSWORD_MIN_LENGTH = 8;
 const ADMIN_PASSWORD_MAX_LENGTH = 512;
 
 type AdminSessionRow = {
@@ -97,8 +98,8 @@ function parsePasswordHash(encoded: string): {
 }
 
 export async function createAdminPasswordHash(password: string): Promise<string> {
-  if (password.length < 12) {
-    throw new Error("A senha administrativa deve ter pelo menos 12 caracteres.");
+  if (password.length < ADMIN_PASSWORD_MIN_LENGTH) {
+    throw new Error("A senha administrativa deve ter pelo menos 8 caracteres.");
   }
   if (password.length > ADMIN_PASSWORD_MAX_LENGTH) {
     throw new Error("A senha administrativa deve ter no máximo 512 caracteres.");
