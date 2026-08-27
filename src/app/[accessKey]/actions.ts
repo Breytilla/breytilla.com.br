@@ -33,6 +33,7 @@ export const initialAdminActionState: AdminActionState = { status: "idle" };
 const loginSchema = z.object({
   username: z.string().trim().min(1).max(160),
   password: z.string().min(8).max(512),
+  rememberDevice: z.boolean(),
 });
 
 function formText(formData: FormData, field: string): string {
@@ -63,6 +64,7 @@ export async function loginAdminAction(
   const parsed = loginSchema.safeParse({
     username: formText(formData, "username"),
     password: formText(formData, "password"),
+    rememberDevice: formText(formData, "rememberDevice") === "on",
   });
   if (!parsed.success) {
     return {
@@ -95,7 +97,7 @@ export async function loginAdminAction(
       };
     }
 
-    await setAdminSessionCookie();
+    await setAdminSessionCookie(parsed.data.rememberDevice);
     try {
       await recordAdminAuditEvent({
         action: "session.created",

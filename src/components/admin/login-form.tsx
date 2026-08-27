@@ -62,6 +62,20 @@ export function AdminLoginForm({ accessKey }: { accessKey: string }) {
         </div>
       </div>
 
+      <label className={styles.rememberOption} htmlFor="admin-remember-device">
+        <input
+          id="admin-remember-device"
+          name="rememberDevice"
+          type="checkbox"
+          value="on"
+        />
+        <span className={styles.rememberControl} aria-hidden="true" />
+        <span>
+          <strong>Manter conectado neste dispositivo</strong>
+          <small>Por 30 dias. Use somente em um dispositivo pessoal.</small>
+        </span>
+      </label>
+
       {state.status === "error" && state.message ? (
         <p className={styles.formMessage} role="alert">
           {state.message}
@@ -81,7 +95,10 @@ export function AdminLoginForm({ accessKey }: { accessKey: string }) {
 
       <p className={styles.loginSecurity}>
         <LockKeyhole aria-hidden="true" />
-        <span>Este acesso é privado, protegido e monitorado por segurança.</span>
+        <span>
+          Sua senha nunca é salva pelo site. O navegador pode oferecê-la pelo
+          gerenciador de senhas.
+        </span>
       </p>
     </form>
   );

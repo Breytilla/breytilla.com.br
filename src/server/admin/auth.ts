@@ -16,6 +16,7 @@ const SESSION_COOKIE =
     ? "__Host-breytilla_admin_session"
     : "breytilla_admin_session";
 const SESSION_DURATION_SECONDS = 8 * 60 * 60;
+const REMEMBERED_SESSION_DURATION_SECONDS = 30 * 24 * 60 * 60;
 const SCRYPT_KEY_LENGTH = 64;
 const SCRYPT_N = 32_768;
 const SCRYPT_R = 8;
@@ -225,10 +226,15 @@ export async function getAdminSession(
   };
 }
 
-export async function setAdminSessionCookie(): Promise<void> {
+export async function setAdminSessionCookie(
+  rememberDevice = false,
+): Promise<void> {
   const environment = getAdminEnv();
   const token = randomBytes(32).toString("base64url");
-  const expiresAt = new Date(Date.now() + SESSION_DURATION_SECONDS * 1_000);
+  const durationSeconds = rememberDevice
+    ? REMEMBERED_SESSION_DURATION_SECONDS
+    : SESSION_DURATION_SECONDS;
+  const expiresAt = new Date(Date.now() + durationSeconds * 1_000);
 
   await getDatabase().begin(async (transaction) => {
     await transaction`
@@ -258,8 +264,10 @@ export async function setAdminSessionCookie(): Promise<void> {
     sameSite: "strict",
     secure: process.env.NODE_ENV === "production",
     path: "/",
-    maxAge: SESSION_DURATION_SECONDS,
     priority: "high",
+    ...(rememberDevice
+      ? { maxAge: REMEMBERED_SESSION_DURATION_SECONDS, expires: expiresAt }
+      : {}),
   });
 }
 

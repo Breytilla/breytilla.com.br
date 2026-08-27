@@ -286,6 +286,74 @@
   height: 18px;
 }
 
+.rememberOption {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr);
+  gap: 11px;
+  align-items: start;
+  color: var(--cocoa);
+  cursor: pointer;
+}
+
+.rememberOption input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.rememberControl {
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(61, 43, 31, 0.4);
+  background: var(--white);
+  transition: border-color 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+.rememberOption input:checked + .rememberControl {
+  border-color: var(--cocoa);
+  background: var(--cocoa);
+}
+
+.rememberOption input:checked + .rememberControl::after {
+  width: 9px;
+  height: 5px;
+  border-bottom: 2px solid var(--white);
+  border-left: 2px solid var(--white);
+  content: "";
+  transform: translateY(-1px) rotate(-45deg);
+}
+
+.rememberOption input:focus-visible + .rememberControl {
+  outline: 2px solid var(--earth-text);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(196, 149, 106, 0.18);
+}
+
+.rememberOption strong,
+.rememberOption small {
+  display: block;
+}
+
+.rememberOption strong {
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.rememberOption small {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+
 .primaryButton,
 .secondaryButton,
 .ghostButton,
